@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Todo from './Todo';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const todos = [
+		{ id: 1, title: 'Go to supermarket', completed: false },
+		{ id: 2, title: 'Make dinner', completed: true },
+		{ id: 2, title: 'Go to sport', completed: true },
+		{ id: 2, title: 'take a nap', completed: false },
+		{ id: 2, title: 'Paint the wall', completed: false },
+	];
+
+	return (
+		<div className='App'>
+			{todos.map((todo, index) => {
+				return <Todo key={index} todo={todo} />;
+			})}
+			<button label='Click me' />
+			<input />
+		</div>
+	);
 }
 
 export default App;
